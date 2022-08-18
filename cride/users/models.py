@@ -6,6 +6,7 @@ from django.contrib.auth.models import AbstractUser
 
 #Utilities
 from cride.utils.models import CRideModel
+#from cride.utils.models import CRideModel
 
 
 class User(CRideModel, AbstractUser):
@@ -30,5 +31,14 @@ class User(CRideModel, AbstractUser):
     is_client = models.BooleanField(
         'client',
         default=True,
-        help_text='Set to true when the user have verified its email addres.'
+        help_text=(
+            'Help easyly distinguish users and perform queries.'
+            'Clients are the main type of user.'
+        )
     )   
+
+    is_verfied = models.BooleanField(
+        'verified',
+        default=True,
+        help_text='Set to true when t,he user have verified its email addres.'
+    )
